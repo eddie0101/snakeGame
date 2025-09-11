@@ -20,3 +20,5 @@ snake.move()
 
 
 screen.exitonclick()
+
+# comment added on replit

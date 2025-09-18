@@ -1,4 +1,4 @@
-from turtle import Screen
+from turtle import Screen, Turtle
 from snake import Snake
 from food import Food
 
@@ -19,5 +19,8 @@ screen.onkey(snake.right, "Right")
 screen.update()
 
 snake.move()
+food.next_cookie()
 
 screen.exitonclick()
+
+# comment added on replit

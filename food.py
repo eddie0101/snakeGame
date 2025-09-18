@@ -1,5 +1,5 @@
 from turtle import Turtle
-from constants import MOVE_DISTANCE
+from snake import MOVE_DISTANCE
 import random
 
 FOOD_GEN_BOUNDARY = 280

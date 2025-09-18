@@ -24,6 +24,7 @@ class Snake:
         self.segments[0].forward(MOVE_DISTANCE)
         self.screen.ontimer(self.move, 200)
         self.screen.update()
+        
 
     def up(self):
         self.segments[0].setheading(90)

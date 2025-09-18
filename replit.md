@@ -12,6 +12,8 @@ This is a classic Snake game implemented in Python using the Turtle graphics lib
 ## Project Architecture
 - `main.py`: Entry point that sets up the game screen, handles user input, and starts the game
 - `snake.py`: Contains the Snake class with movement logic and control methods
+- `food.py`: Contains the Food class that handles food generation and positioning
+- `constants.py`: Shared constants used across the game components
 
 ## How to Play
 1. The game runs automatically when the workflow starts (VNC pane opens automatically)

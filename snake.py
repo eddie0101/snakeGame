@@ -22,9 +22,9 @@ class Snake:
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
         self.segments[0].forward(MOVE_DISTANCE)
-        self.screen.ontimer(self.move, 200)
-        self.screen.update()
         
+    def get_head_coords(self):
+        return self.segments[0].position()
 
     def up(self):
         self.segments[0].setheading(90)

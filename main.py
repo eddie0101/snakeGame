@@ -23,7 +23,7 @@ def check_food_collision():
     x_s, y_s = snake.get_head_coords()
     x_f, y_f = food.get_coords()
     if abs(x_s - x_f) < 0.1 and abs(y_s - y_f) < 0.1:
-        food.next_cookie()
+        return True
 
 def debug():
     print(f"Snake head coords: {snake.get_head_coords()}")
@@ -31,10 +31,12 @@ def debug():
 
 def game_run():
     snake.move()
-    check_food_collision()
+    if check_food_collision(): 
+        food.next_cookie()
+        snake.grow()
     screen.update()
     debug()
-    screen.ontimer(game_run, 200)
+    screen.ontimer(game_run, 100)
 
 game_run()
 

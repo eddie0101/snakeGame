@@ -20,9 +20,10 @@ food.next_cookie()
 screen.update()
 
 def check_food_collision():
-    if snake.get_head_coords() == food.get_coords():
+    x_s, y_s = snake.get_head_coords()
+    x_f, y_f = food.get_coords()
+    if abs(x_s - x_f) < 0.1 and abs(y_s - y_f) < 0.1:
         food.next_cookie()
-        print("##############")
 
 def debug():
     print(f"Snake head coords: {snake.get_head_coords()}")

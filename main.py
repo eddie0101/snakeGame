@@ -1,16 +1,18 @@
 from turtle import Screen, Turtle
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 import constants
 
 screen = Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=600, height=620) # height updated from 600 to 620 in order to have space for displaying the score
 screen.bgcolor("black")
 screen.title("snake game")
 screen.tracer(False)
 
 snake = Snake(screen)
 food = Food()
+scoreboard = Scoreboard()
 
 # Game state flag
 running = True
@@ -54,7 +56,8 @@ def game_run():
 
     snake.move()
 
-    if check_food_collision(): 
+    if check_food_collision():
+        scoreboard.score_update()
         food.next_cookie()
         snake.grow()
 

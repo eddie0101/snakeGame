@@ -1,5 +1,6 @@
 from turtle import Screen, Turtle
 from snake import Snake
+import globals
 from food import Food
 from scoreboard import Scoreboard
 import constants
@@ -54,6 +55,7 @@ def game_run():
     if not running:
         return # stop the loop
 
+    globals.allow_snake_heading_change = True
     snake.move()
 
     if check_food_collision():

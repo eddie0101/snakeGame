@@ -1,5 +1,6 @@
 from turtle import Turtle
 from constants import MOVE_DISTANCE, STARTING_POSITIONS
+import globals
 
 class Snake:
 
@@ -34,17 +35,21 @@ class Snake:
         return self.segments[0].position()
 
     def up(self):
-        if self.segments[0].heading() != 90 and self.segments[0].heading() != 270:
+        if self.segments[0].heading() != 90 and self.segments[0].heading() != 270 and globals.allow_snake_heading_change == True:
             self.segments[0].setheading(90)
+        globals.allow_snake_heading_change = False
 
     def down(self):
-        if self.segments[0].heading() != 90 and self.segments[0].heading() != 270:
+        if self.segments[0].heading() != 90 and self.segments[0].heading() != 270 and globals.allow_snake_heading_change == True:
             self.segments[0].setheading(270)
+        globals.allow_snake_heading_change = False
 
     def left(self):
-        if self.segments[0].heading() != 0 and self.segments[0].heading() != 180:
+        if self.segments[0].heading() != 0 and self.segments[0].heading() != 180 and globals.allow_snake_heading_change == True:
             self.segments[0].setheading(180)
+        globals.allow_snake_heading_change = False
 
     def right(self):
-        if self.segments[0].heading() != 0 and self.segments[0].heading() != 180:
+        if self.segments[0].heading() != 0 and self.segments[0].heading() != 180 and globals.allow_snake_heading_change == True:
             self.segments[0].setheading(0)
+        globals.allow_snake_heading_change = False

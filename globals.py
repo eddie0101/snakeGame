@@ -1,0 +1,1 @@
+allow_snake_heading_change = True # 1 allows the snake to change heading orientation, but 0 does not. This will reset every tick to prevent some more than one command in the same tick

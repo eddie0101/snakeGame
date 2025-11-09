@@ -63,6 +63,7 @@ def game_run():
         scoreboard.score_update()
         food.next_cookie()
         snake.grow()
+        snake.speed_increase()
 
     if check_tail_collision():
         running = False
@@ -72,7 +73,8 @@ def game_run():
         return # IMPORTANT: do not schedule another timer
 
     screen.update()
-    screen.ontimer(game_run, constants.SNAKE_DEFAULT_SPEED)
+    snake_speed = constants.SNAKE_DEFAULT_SPEED // snake.speed
+    screen.ontimer(game_run, int(snake_speed))
 
 def gameover():
     # Disable controls

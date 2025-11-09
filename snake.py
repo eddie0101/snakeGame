@@ -8,6 +8,7 @@ class Snake:
         self.screen = screen
         self.segments = []
         self.create_snake()
+        self._speed = 1
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
@@ -16,6 +17,13 @@ class Snake:
             new_segment.penup()
             new_segment.goto(position)
             self.segments.append(new_segment)
+
+    @property
+    def speed(self):
+        return self._speed
+
+    def speed_increase(self):
+        self._speed += 0.1
 
     def grow(self):
         new_segment = Turtle("square")

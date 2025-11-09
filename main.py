@@ -37,6 +37,7 @@ def check_food_collision():
     x_f, y_f = food.get_coords()
     if abs(x_s - x_f) < 0.1 and abs(y_s - y_f) < 0.1:
         return True
+    return False
 
 def check_tail_collision():
     x_s, y_s = snake.get_head_coords()

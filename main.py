@@ -6,7 +6,7 @@ from scoreboard import Scoreboard
 import constants
 
 screen = Screen()
-screen.setup(width=600, height=620) # height updated from 600 to 620 in order to have space for displaying the score
+screen.setup(constants.SCREEN_WIDTH, constants.SCREEN_LENGTH) # height updated from 600 to 620 in order to have space for displaying the score
 screen.bgcolor("black")
 screen.title("snake game")
 screen.tracer(False)

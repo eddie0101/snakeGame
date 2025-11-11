@@ -16,7 +16,7 @@ class Walls:
         self.right_border = constants.SCREEN_WIDTH / 2
 
     def show_border(self):
-
+        return
 
     def check_wall_collision(self, snake):
         if (

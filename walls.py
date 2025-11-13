@@ -17,8 +17,8 @@ class Walls:
         self.right_border = constants.SCREEN_WIDTH / 2
 
         # Adjust borders to be inside the screen
-        self.up_border -= 20
-        self.down_border += 20
+        self.up_border -= 30
+        self.down_border += 30
         self.left_border += 20
         self.right_border -= 20
         

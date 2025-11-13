@@ -1,3 +1,7 @@
+"""
+This module is the main entry point for the snake game.
+"""
+
 from turtle import Screen, Turtle
 from snake import Snake
 import globals
@@ -35,6 +39,10 @@ CELL = 20
 HIT_RADIUS = CELL * 0.5
 
 def check_food_collision():
+    """
+    Check if the snake head is close enough to the food to be considered a collision.
+    :return: True if the snake head is close enough to the food, False otherwise.
+    """
     x_s, y_s = snake.get_head_coords()
     x_f, y_f = food.get_coords()
     if abs(x_s - x_f) < 0.1 and abs(y_s - y_f) < 0.1:
@@ -42,6 +50,10 @@ def check_food_collision():
     return False
 
 def check_tail_collision():
+    """
+    Check if the snake head is close enough to any segment of the tail to be considered a collision.
+    :return: True if the snake head is close enough to any segment of the tail, False otherwise.
+    """    
     x_s, y_s = snake.get_head_coords()
     for segment in snake.segments[1:]:
         x_seg, y_seg = segment.position()
@@ -50,10 +62,18 @@ def check_tail_collision():
     return False
 
 def debug():
+    """
+    Print the coordinates of the snake head and the food.
+    :return: None
+    """
     print(f"Snake head coords: {snake.get_head_coords()}")
     print(f"Food coords: {food.get_coords()}")
 
 def game_run():
+    """
+    Main game loop.
+    :return: None
+    """
     global running
     if not running:
         return # stop the loop
@@ -79,6 +99,10 @@ def game_run():
     screen.ontimer(game_run, int(snake_speed))
 
 def gameover():
+    """
+    Display game over message and exit the game.
+    :return: None
+    """
     # Disable controls
     screen.onkey(None, "Up")
     screen.onkey(None, "Down")

@@ -4,6 +4,7 @@ import globals
 from food import Food
 from scoreboard import Scoreboard
 import constants
+from walls import Walls
 
 screen = Screen()
 screen.setup(constants.SCREEN_WIDTH, constants.SCREEN_LENGTH) # height updated from 600 to 620 in order to have space for displaying the score
@@ -14,6 +15,7 @@ screen.tracer(False)
 snake = Snake(screen)
 food = Food()
 scoreboard = Scoreboard()
+walls = Walls()
 
 # Game state flag
 running = True
@@ -65,7 +67,7 @@ def game_run():
         snake.grow()
         snake.speed_increase()
 
-    if check_tail_collision():
+    if check_tail_collision() or walls.check_wall_collision(snake):
         running = False
         gameover()
         screen.update()

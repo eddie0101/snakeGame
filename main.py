@@ -9,6 +9,7 @@ from food import Food
 from scoreboard import Scoreboard
 import constants
 from walls import Walls
+from grid import Grid
 
 screen = Screen()
 screen.setup(constants.SCREEN_WIDTH, constants.SCREEN_LENGTH) # height updated from 600 to 620 in order to have space for displaying the score
@@ -20,6 +21,7 @@ snake = Snake(screen)
 food = Food()
 scoreboard = Scoreboard()
 walls = Walls()
+grid = Grid()
 
 # Game state flag
 running = True

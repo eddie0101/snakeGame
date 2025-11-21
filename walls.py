@@ -1,4 +1,5 @@
 import constants
+import settings
 from turtle import Turtle
 
 class Walls:
@@ -21,11 +22,13 @@ class Walls:
         self.down_border += 30
         self.left_border += 20
         self.right_border -= 20
-        
-        print(f"up_border: {self.up_border}")
-        print(f"down_border: {self.down_border}")
-        print(f"left_border: {self.left_border}")
-        print(f"right_border: {self.right_border}")
+
+        if settings.PRINT_BORDERS_POSITION:
+            print("\nBorders positions:")
+            print(f"up_border: {self.up_border}")
+            print(f"down_border: {self.down_border}")
+            print(f"left_border: {self.left_border}")
+            print(f"right_border: {self.right_border}")
         self.show_border()
 
     def show_border(self):

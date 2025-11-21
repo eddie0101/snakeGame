@@ -10,6 +10,7 @@ from scoreboard import Scoreboard
 import constants
 from walls import Walls
 from grid import Grid
+import settings
 
 screen = Screen()
 screen.setup(constants.SCREEN_WIDTH, constants.SCREEN_LENGTH) # height updated from 600 to 620 in order to have space for displaying the score
@@ -21,7 +22,10 @@ snake = Snake(screen)
 food = Food()
 scoreboard = Scoreboard()
 walls = Walls()
-grid = Grid()
+if settings.DISABLE_GRID:
+    grid = None
+else:
+    grid = Grid()
 
 # Game state flag
 running = True
@@ -105,6 +109,9 @@ def gameover():
     Display game over message and exit the game.
     :return: None
     """
+    if settings.DISABLE_GAMEOVER:
+        return
+    
     # Disable controls
     screen.onkey(None, "Up")
     screen.onkey(None, "Down")

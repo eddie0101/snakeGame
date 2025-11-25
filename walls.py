@@ -2,6 +2,9 @@ import constants
 import settings
 from turtle import Turtle
 
+from constants import CELL_SIZE
+
+
 class Walls:
 
     def __init__(self):
@@ -30,6 +33,12 @@ class Walls:
             print(f"left_border: {self.left_border}")
             print(f"right_border: {self.right_border}")
         self.show_border()
+
+    def get_border_limits(self):
+        return (int(self.up_border - CELL_SIZE),
+                int(self.right_border - CELL_SIZE),
+                int(self.down_border + CELL_SIZE),
+                int(self.left_border + CELL_SIZE))
 
     def show_border(self):
         wall = Turtle("square")

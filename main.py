@@ -18,10 +18,10 @@ screen.bgcolor("black")
 screen.title("snake game")
 screen.tracer(False)
 
-snake = Snake(screen)
-food = Food()
-scoreboard = Scoreboard()
 walls = Walls()
+snake = Snake(screen)
+food = Food(walls)
+scoreboard = Scoreboard()
 if settings.DISABLE_GRID:
     grid = None
 else:
@@ -37,10 +37,10 @@ screen.onkey(lambda: running and snake.down(), "Down")
 screen.onkey(lambda: running and snake.left(), "Left")
 screen.onkey(lambda: running and snake.right(), "Right")
 
-food.next_cookie()
+food.next_cookie(walls)
 screen.update()
 
-# Adjust o match the grid
+# Adjust to match the grid
 CELL = 20
 HIT_RADIUS = CELL * 0.5
 

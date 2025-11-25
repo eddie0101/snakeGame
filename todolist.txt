@@ -1,1 +1,4 @@
-- food generating inside the walls
+Food generating inside the walls
+- food generation has to be refactored
+- food boundary generation was not updated after the changes which came with the addition of grid
+* updated the way food generates, but it gives a bug that does not allow food to be eaten

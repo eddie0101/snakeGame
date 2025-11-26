@@ -51,6 +51,7 @@ class Walls:
         wall.goto(self.right_border, self.down_border)
         wall.goto(self.left_border, self.down_border)
         wall.goto(self.left_border, self.up_border)
+        wall.hideturtle()
         return True
 
     def check_wall_collision(self, snake):

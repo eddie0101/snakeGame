@@ -13,10 +13,11 @@ from grid import Grid
 import settings
 
 screen = Screen()
-screen.setup(constants.SCREEN_WIDTH, constants.SCREEN_LENGTH) # height updated from 600 to 620 in order to have space for displaying the score
+screen.setup(constants.SCREEN_WIDTH, constants.SCREEN_LENGTH)
 screen.bgcolor("black")
 screen.title("snake game")
 screen.tracer(False)
+print("Screen seize: " + str(screen.window_width()) + "x" + str(screen.window_height()))
 
 walls = Walls()
 snake = Snake(screen)

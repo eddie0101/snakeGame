@@ -1,6 +1,8 @@
 from turtle import Turtle
 import random
 
+from constants import CELL_SIZE
+
 class Food:
     """
     This class is responsible for creating and managing the food that the snake eats.
@@ -22,8 +24,8 @@ class Food:
          right_limit,
          down_limit,
          left_limit) = walls.get_border_limits()
-        self.food.goto(random.randint(left_limit, right_limit),
-                       random.randint(down_limit, up_limit))
+        self.food.goto(random.randint(left_limit // CELL_SIZE, right_limit // CELL_SIZE) * CELL_SIZE,
+                       random.randint(down_limit // CELL_SIZE, up_limit // CELL_SIZE) * CELL_SIZE)
 
     def get_coords(self):
         return self.food.position()

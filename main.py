@@ -52,7 +52,7 @@ def check_food_collision():
     """
     x_s, y_s = snake.get_head_coords()
     x_f, y_f = food.get_coords()
-    if abs(x_s - x_f) < 0.1 and abs(y_s - y_f) < 0.1:
+    if abs(abs(x_s) - abs(x_f)) < 0.1 and abs(abs(y_s) - abs(y_f)) < 0.1:
         print("inside food collision")
         return True
     return False
@@ -91,7 +91,7 @@ def game_run():
 
     if check_food_collision():
         scoreboard.score_update()
-        food.next_cookie()
+        food.next_cookie(walls)
         snake.grow()
         snake.speed_increase()
 

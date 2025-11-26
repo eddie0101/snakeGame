@@ -21,10 +21,19 @@ class Walls:
         self.right_border = constants.SCREEN_WIDTH / 2
 
         # Adjust borders to be inside the screen
-        self.up_border -= 30
-        self.down_border += 30
-        self.left_border += 20
-        self.right_border -= 20
+        if constants.GRID_LENGTH % 2:
+            self.up_border -= constants.WALLS_MARGIN_OFFSET + 10
+            self.down_border += constants.WALLS_MARGIN_OFFSET + 10
+        else:
+            self.up_border -= constants.WALLS_MARGIN_OFFSET + 10
+            self.down_border += constants.WALLS_MARGIN_OFFSET + 10
+
+        if constants.GRID_WIDTH % 2:
+            self.left_border += constants.WALLS_MARGIN_OFFSET
+            self.right_border -= constants.WALLS_MARGIN_OFFSET
+        else:
+            self.left_border += constants.WALLS_MARGIN_OFFSET
+            self.right_border -= constants.WALLS_MARGIN_OFFSET
 
         if settings.PRINT_BORDERS_POSITION:
             print("\nBorders positions:")

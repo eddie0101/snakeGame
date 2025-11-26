@@ -19,7 +19,7 @@ class Grid(Turtle):
         x2_coord = SCREEN_WIDTH / -2
         y2_coord = SCREEN_LENGTH / -2
 
-        for i in range(SCREEN_WIDTH // CELL_SIZE):
+        for i in range(SCREEN_WIDTH // CELL_SIZE + 1):
             self.penup()
             self.goto(x1_coord + i * CELL_SIZE, y1_coord)
             self.pendown()
@@ -31,7 +31,7 @@ class Grid(Turtle):
         x2_coord = SCREEN_WIDTH / 2
         y2_coord = SCREEN_LENGTH / 2
 
-        for i in range(SCREEN_LENGTH // CELL_SIZE):
+        for i in range(SCREEN_LENGTH // CELL_SIZE + 1):
             self.penup()
             self.goto(x1_coord, y1_coord - i * CELL_SIZE)
             self.pendown()

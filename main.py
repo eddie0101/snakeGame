@@ -19,6 +19,10 @@ screen.title("snake game")
 screen.tracer(False)
 print("Screen seize: " + str(screen.window_width()) + "x" + str(screen.window_height()))
 
+# clear the log file
+with open("logs.txt", "w") as file:
+    file.write('')
+
 walls = Walls()
 snake = Snake(screen)
 food = Food(walls)
@@ -50,11 +54,26 @@ def check_food_collision():
     Check if the snake head is close enough to the food to be considered a collision.
     :return: True if the snake head is close enough to the food, False otherwise.
     """
+
+    """
+    OLD COLLISION CHECK
     x_s, y_s = snake.get_head_coords()
     x_f, y_f = food.get_coords()
     if abs(abs(x_s) - abs(x_f)) < 0.1 and abs(abs(y_s) - abs(y_f)) < 0.1:
         print("inside food collision")
         return True
+    return False
+    """
+    x_s, y_s = snake.get_head_coords()
+    x_f, y_f = food.get_coords()
+    if int(x_s) == int(x_f) and int(y_s) == int(y_f):
+        with open("logs.txt", "a") as file:
+            file.write("[=============== Eaten food here ================]\n")
+            file.write(f"Snake: ({x_s}, {y_s})\n")
+            file.write(f"Food: ({x_f}, {y_f})\n\n")
+        return True
+    with open("logs.txt", "a") as file:
+        file.write(f"Snake: ({x_s}, {y_s})\n")
     return False
 
 def check_tail_collision():
@@ -94,6 +113,7 @@ def game_run():
         food.next_cookie(walls)
         snake.grow()
         snake.speed_increase()
+        screen.update()
 
     if check_tail_collision() or walls.check_wall_collision(snake):
         running = False

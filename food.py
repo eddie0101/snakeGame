@@ -26,6 +26,9 @@ class Food:
          left_limit) = walls.get_border_limits()
         self.food.goto(random.randint(left_limit // CELL_SIZE, right_limit // CELL_SIZE) * CELL_SIZE,
                        random.randint(down_limit // CELL_SIZE, up_limit // CELL_SIZE) * CELL_SIZE)
+        x_f, y_f = self.get_coords()
+        with open("logs.txt", "a") as file:
+            file.write(f"Snake: ({x_f}, {y_f})\n")
 
     def get_coords(self):
         return self.food.position()

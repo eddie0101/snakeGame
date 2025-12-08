@@ -34,13 +34,14 @@ class Snake:
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
-            new_x = self.segments[seg_num - 1].xcor()
-            new_y = self.segments[seg_num - 1].ycor()
+            new_x = round(self.segments[seg_num - 1].xcor())
+            new_y = round(self.segments[seg_num - 1].ycor())
             self.segments[seg_num].goto(new_x, new_y)
         self.segments[0].forward(MOVE_DISTANCE)
         
     def get_head_coords(self):
-        return self.segments[0].position()
+        x, y = self.segments[0].position()
+        return (round(x), round(y))
 
     def up(self):
         if self.segments[0].heading() != 90 and self.segments[0].heading() != 270 and globals.allow_snake_heading_change == True:
